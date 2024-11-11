@@ -1,5 +1,338 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: var(--font-family);
+  color: var(--text-color);
+  font-size: 18px;
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top center;
+}
+
+/*Header styles*/
+.header {
+  display: grid;
+  align-items: center;
+  --padding: 10px;
+  padding: var(--padding);
+  height: 100vh;
+  min-block-size: 670px;
+  grid-template-rows: 1fr auto 1fr;
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::before {
+  border-top: 1px solid var(--rec-icon-color);
+  border-right: 1px solid var(--rec-icon-color);
+  inset-inline-end: var(--padding);
+  inset-block-start: var(--padding);
+}
+
+.decorated-zone::after {
+  border-bottom: 1px solid var(--rec-icon-color);
+  border-left: 1px solid var(--rec-icon-color);
+  inset-inline-start: var(--padding);
+  inset-block-end: var(--padding);
+}
+
+@media(min-width: 768px) {
+  .header {
+    --padding: 20px;
+  }
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media(min-width: 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: self-start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+}
+
+.header__theme-menu-button {
+  padding: 1px 13px;
+  outline: 1px solid transparent;
+  background-color: transparent;
+  color: var(--button-color);
+  text-transform: lowercase;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: transparent;
+  cursor: pointer;
+  transition-property: outline;
+  transition-duration: 200ms;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--button-color-hover);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--button-color);
+}
+
+.rec-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--button-color);
+  --rec-icon-visibility: shown;
+  visibility: var(--rec-icon-visibility, hidden);
+  inset-inline-end: calc(var(--padding) + 10px);
+  inset-block-start: calc(var(--padding) + 2px);
+}
+
+.rec-icon::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--rec-icon-color);
+  background-color: var(--rec-icon-color);
+  inline-size: 9px;
+  block-size: 9px;
+}
+
+.header__title {
+  text-shadow: 4px 4px 0 var(--accent-color);
+  align-self: self-start;
+}
+
+@media(min-width: 768px) {
+  .header__title {
+    margin-left: -20px;
+  }
+}
+
+.title-decor-shadow {
+  font-weight: 700;
+  font-size: var(--header-text-size-mobile);
+  line-height: 82%;
+  color: var(--header-text-color);
+}
+
+@media(min-width:1024px) {
+  .title-decor-shadow {
+    font-size: var(--header-text-size-desktop);
+  }
+}
+
+.header__text {
+  justify-self: end;
+  max-inline-size: 365px;
+}
+
+@media(min-width:1024px) {
+  .header__text {
+    max-inline-size: 490px;
+  }
+}
+
+.background-decor {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+}
+
+.text-decor {
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.text-decor-normal {
+  font-weight: 400;
+}
+
+.text-decor-bold {
+  font-weight: 700;
+}
+
+/*Main styles*/
+.content {
+  padding-inline: 10px;
+}
+
+.content__section {
+  margin-block-end: 50px;
+}
+
+.content__why {
+  margin-block-start: 40px;
+}
+
+.sub-header {
+  margin: 0 0 20px;
+  color: var(--sub-header-color);
+}
+
+@media(min-width: 768px) {
+  .content {
+    padding-inline: 20px;
+  }
+
+  .content__section {
+    margin-block-end: 60px;
+  }
+
+  .column-container {
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    column-gap: 20px;
+  }
+
+  .sub-header {
+    max-inline-size: 236px;
+  }
+
+  .content__why {
+    margin-block-start: 60px;
+  }
+}
+
+@media(min-width: 1024px) {
+  .column-container {
+    grid-template-columns: 314px 1fr;
+  }
+
+  .sub-header {
+    max-inline-size: 315px;
+  }
+
+  .column-container-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+  }
+
+  .column-container-triple .article {
+    grid-row-start: 2;
+  }
+}
+
+
+.article-text {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.article-title-margin {
+  margin-bottom: 20px;
+}
+
+/*Gallery styles*/
+.gallery {
+  margin-block-start: 50px;
+  margin-block-end: 40px;
+}
+
+.gallery__title {
+  margin-block-end: 10px;
+}
+
+.gallery__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gallery__img {
+  inline-size: 100%;
+}
+
+@media(min-width:768px) {
+  .gallery {
+    margin-block: 60px;
+  }
+
+  .gallery__title {
+    margin-block-end: 20px;
+  }
+
+  .gallery__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 192px 230px 318px;
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+
+  .gallery__list-item:nth-child(1) {
+    grid-column: 1 / 3;
+  }
+
+  .gallery__list-item:nth-child(2) {
+    grid-row-end: span 2;
+  }
+
+  .gallery__list-item:nth-child(3) {
+    grid-row-end: span 2;
+  }
+
+  .gallery__list-item:last-child {
+    grid-column: 2 / span 2;
+  }
+
+  .gallery__img {
+    object-fit: cover;
+    object-position: top;
+    block-size: 100%;
+  }
+}
+
+@media(min-width:1024px) {
+  .gallery__list {
+    grid-template-rows: 260px 315px 428px;
+  }
+}
+
+
+/*Footer styles*/
+.footer {
+  display: grid;
+  align-items: center;
+  --padding: 10px;
+  padding: var(--padding);
+  height: 100vh;
+  min-block-size: 670px;
+}
+
+@media(min-width:768px) {
+  .footer {
+    --padding: 20px;
+  }
+}
+
+.footer__text {
+  justify-self: center;
+  text-shadow: 2px 2px 0 var(--accent-color);
 }
