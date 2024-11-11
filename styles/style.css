@@ -108,7 +108,6 @@
   align-items: center;
   gap: 10px;
   color: var(--button-color);
-  --rec-icon-visibility: shown;
   visibility: var(--rec-icon-visibility, hidden);
   inset-inline-end: calc(var(--padding) + 10px);
   inset-block-start: calc(var(--padding) + 2px);
@@ -161,7 +160,7 @@
 
 .background-decor {
   background-color: var(--accent-color);
-  color: var(--background-color);
+  color: var(--accent-color-w-background);
 }
 
 .text-decor {

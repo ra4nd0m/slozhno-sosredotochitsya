@@ -5,8 +5,16 @@
 */
 
 .page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --background-color: #fff1f7;
+  --background-image: url(../images/cover-image-light.png);
+  --text-color: #353430;
+  --button-color: #353430;
+  --button-color-hover: #32312d66;
+  --accent-color: #ff8dcb;
+  --header-text-color: #ffc2e6;
+  --sub-header-color: #353430;
+  --rec-icon-visibility: hidden;
+  --rec-icon-color: #ff0070;
 }
+
+@media (prefers-color-scheme: light) {}
