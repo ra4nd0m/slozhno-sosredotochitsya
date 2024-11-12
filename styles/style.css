@@ -320,9 +320,10 @@
 }
 
 @media(min-width:1024px) {
-  .gallery{
+  .gallery {
     margin-block-end: 56px;
   }
+
   .gallery__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
