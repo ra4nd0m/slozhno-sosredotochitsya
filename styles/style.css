@@ -113,7 +113,7 @@
   align-items: center;
   gap: 10px;
   color: var(--button-color);
-  visibility: var(--rec-icon-visibility, shown);
+  visibility: var(--rec-icon-visibility, visible);
   inset-inline-end: calc(var(--padding) + 10px);
   inset-block-start: calc(var(--padding) + 2px);
 }
@@ -256,6 +256,18 @@
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
+.article__link:hover {
+  border-bottom-color: currentColor;
+}
+
+.article__link:focus {
+  outline: 0;
+}
+
+.article__link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
 .article-text {
   margin-top: 10px;
   margin-bottom: 20px;
@@ -327,7 +339,7 @@
   .gallery__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 24px;
+    row-gap: 20px;
     column-gap: 20px;
   }
 }
